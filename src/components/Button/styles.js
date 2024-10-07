@@ -11,6 +11,10 @@ export const Container = styled.button`
 
     border: none;
 
+    font-family: Poppins, serif;
+    font-size: 14px;
+    font-weight: 500;
+
     color: ${({theme}) => theme.COLORS.LIGHT_100};
     background-color: ${({theme}) => theme.COLORS.TOMATO_100};
 `;
