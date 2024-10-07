@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.span`
-    margin-top: 32px;
+    width: fit-content;
+    
+    margin: 32px auto 0px;
 
     font-size: 14px;
     font-weight: 500;
     line-height: 24px;
-    text-align: center;
+
+    cursor: pointer;
 `;
