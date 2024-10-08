@@ -19,7 +19,7 @@ export const Container = styled.header`
         gap: 8px;
 
         margin: 0 32px;
-        padding: 12px 46.5px;
+        padding: 12px 32px;
     }
 
     > svg {
