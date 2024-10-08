@@ -2,6 +2,8 @@ import { IoIosArrowBack, IoIosArrowForward  } from "react-icons/io";
 
 import { HeaderCostumer } from "../../components/HeaderCostumer";
 import { ProductCard } from "../../components/ProductCard";
+import { Footer } from "../../components/Footer";
+
 import bannerImg from "../../assets/macaron-banner.png"
 import salada from "../../assets/salada.png"
 import torradas from "../../assets/torradas.png"
@@ -102,41 +104,6 @@ export function Home() {
             <IoIosArrowForward />
             </Products>
 
-            <h2>Sobremesas</h2>
-
-            <Products>
-                <IoIosArrowBack />
-                <ProductCard
-                    image={prugna}
-                    name="Prugna Pie"
-                    description="Torta de ameixa com massa amanteigada, polvilho em açúcar."
-                    priece="R$ 79,97"
-                />
-
-                <ProductCard
-                    image={peachy}
-                    name="Peachy pastrie"
-                    description="Delicioso folheado de pêssego com folhas de hortelã."
-                    priece="R$ 32,97"
-                />
-
-                <ProductCard
-                    image={macarons}
-                    name="Macarons"
-                    description="Farinha de amêndoas, manteiga, claras e açúcar."
-                    priece="R$ 79,97"
-                />
-
-                <ProductCard
-                    image={boloDamasco}
-                    name="Bolo de damasco"
-                    description="Bolo de chocolate com damascos secos e picados e açúcar de confeiteiro"
-                    priece="R$ 69,97"
-                />
-
-            <IoIosArrowForward />
-            </Products>
-
             <h2>Bebidas</h2>
 
             <Products>
@@ -173,6 +140,7 @@ export function Home() {
             </Products>
         </Main>
 
+        <Footer />
         </Container>
     )
 }

@@ -5,7 +5,7 @@ export const Container = styled.div`
 `;
 
 export const Main = styled.main`
-    padding: 196px 124px 46px;
+    padding: 196px 124px 48px;
 
     > h2 {
         font-family: "Poppins", serif;
