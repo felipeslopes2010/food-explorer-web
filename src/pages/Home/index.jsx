@@ -11,6 +11,10 @@ import prugna from "../../assets/prugna.png"
 import peachy from "../../assets/peachy.png"
 import macarons from "../../assets/macarons.png"
 import boloDamasco from "../../assets/bolo-damasco.png"
+import cafeExpresso from "../../assets/cafe-expresso.png"
+import sucoMaracuja from "../../assets/suco-maracuja.png"
+import chaOutono from "../../assets/cha-outono.png"
+import chaMaca from "../../assets/cha-maca.png"
 
 import { Container, Main, Banner, Products } from "./styles";
 
@@ -98,7 +102,75 @@ export function Home() {
             <IoIosArrowForward />
             </Products>
 
+            <h2>Sobremesas</h2>
 
+            <Products>
+                <IoIosArrowBack />
+                <ProductCard
+                    image={prugna}
+                    name="Prugna Pie"
+                    description="Torta de ameixa com massa amanteigada, polvilho em açúcar."
+                    priece="R$ 79,97"
+                />
+
+                <ProductCard
+                    image={peachy}
+                    name="Peachy pastrie"
+                    description="Delicioso folheado de pêssego com folhas de hortelã."
+                    priece="R$ 32,97"
+                />
+
+                <ProductCard
+                    image={macarons}
+                    name="Macarons"
+                    description="Farinha de amêndoas, manteiga, claras e açúcar."
+                    priece="R$ 79,97"
+                />
+
+                <ProductCard
+                    image={boloDamasco}
+                    name="Bolo de damasco"
+                    description="Bolo de chocolate com damascos secos e picados e açúcar de confeiteiro"
+                    priece="R$ 69,97"
+                />
+
+            <IoIosArrowForward />
+            </Products>
+
+            <h2>Bebidas</h2>
+
+            <Products>
+                <IoIosArrowBack />
+                <ProductCard
+                    image={cafeExpresso}
+                    name="Café Expresso"
+                    description="Café cremoso feito na temperatura e pressões perfeitas."
+                    priece="R$ 15,97"
+                />
+
+                <ProductCard
+                    image={sucoMaracuja}
+                    name="Suco de maracujá"
+                    description="Suco de maracujá gelado, cremoso, docinho."
+                    priece="R$ 13,97"
+                />
+
+                <ProductCard
+                    image={chaOutono}
+                    name="Tè d'autunno"
+                    description="Chá de anis, canela e limão. Sinta o outono italiano."
+                    priece="R$ 19,97"
+                />
+
+                <ProductCard
+                    image={chaMaca}
+                    name="Pomme d'Or"
+                    description="Um coquetel refrescante que combina a suavidade da maçã com o calor do whisky."
+                    priece="R$ 19,97"
+                />
+
+            <IoIosArrowForward />
+            </Products>
         </Main>
 
         </Container>
