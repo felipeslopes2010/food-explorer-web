@@ -5,18 +5,18 @@ import { ProductCard } from "../../components/ProductCard";
 import { Footer } from "../../components/Footer";
 
 import bannerImg from "../../assets/macaron-banner.png"
-import salada from "../../assets/salada.png"
-import torradas from "../../assets/torradas.png"
-import salada2 from "../../assets/salada2.png"
-import spaguetti from "../../assets/spaguetti.png"
-import prugna from "../../assets/prugna.png"
-import peachy from "../../assets/peachy.png"
-import macarons from "../../assets/macarons.png"
-import boloDamasco from "../../assets/bolo-damasco.png"
-import cafeExpresso from "../../assets/cafe-expresso.png"
-import sucoMaracuja from "../../assets/suco-maracuja.png"
-import chaOutono from "../../assets/cha-outono.png"
-import chaMaca from "../../assets/cha-maca.png"
+import salada from "../../assets/dishes/salada.png"
+import torradas from "../../assets/dishes/torradas.png"
+import salada2 from "../../assets/dishes/salada2.png"
+import spaguetti from "../../assets/dishes/spaguetti.png"
+import prugna from "../../assets/dishes/prugna.png"
+import peachy from "../../assets/dishes/peachy.png"
+import macarons from "../../assets/dishes/macarons.png"
+import boloDamasco from "../../assets/dishes/bolo-damasco.png"
+import cafeExpresso from "../../assets/dishes/cafe-expresso.png"
+import sucoMaracuja from "../../assets/dishes/suco-maracuja.png"
+import chaOutono from "../../assets/dishes/cha-outono.png"
+import chaMaca from "../../assets/dishes/cha-maca.png"
 
 import { Container, Main, Banner, Products } from "./styles";
 
