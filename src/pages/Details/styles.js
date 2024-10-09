@@ -28,3 +28,7 @@ export const Main = styled.div`
 export const Description = styled.div`
 
 `;
+
+export const Tags = styled.div`
+
+`;
