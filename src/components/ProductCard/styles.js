@@ -44,6 +44,8 @@ export const Container = styled.div`
     }
 
     > p {
+        height: 34px;
+        
         font-size: 14px;
         text-align: center;
         color: ${({theme}) => theme.COLORS.LIGHT_400};
