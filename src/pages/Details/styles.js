@@ -91,6 +91,8 @@ export const QuantitySelecter = styled.div`
         height: 24px;
 
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
+
+        cursor: pointer;
     }
 
     > span {

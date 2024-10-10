@@ -14,6 +14,8 @@ export const Container = styled.header`
     }
 
     > button {
+        min-width: 216px;
+
         display: flex;
         align-items: center;
         gap: 8px;
@@ -42,8 +44,24 @@ export const Logo = styled.div`
         height: 30px;
     }
 
-    > h2 {
-        font-size: 24px;
-        font-weight: 700;
+    .logo-wrapper {
+        position: relative;
+        text-align: end;
+
+        > h2 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        > span {
+            position: absolute;
+            top: 25px;
+            right: 0;
+
+            font-size: 12px;
+            font-weight: 400;
+
+         color: ${({ theme }) => theme.COLORS.CAKE_200};
+        }
     }
 `;

@@ -1,6 +1,6 @@
 import { IoIosArrowBack, IoIosArrowForward  } from "react-icons/io";
 
-import { HeaderCostumer } from "../../components/HeaderCostumer";
+import { Header } from "../../components/Header";
 import { ProductCard } from "../../components/ProductCard";
 import { Footer } from "../../components/Footer";
 
@@ -23,7 +23,7 @@ import { Container, Main, Banner, Products } from "./styles";
 export function Home() {
     return(
         <Container>
-            <HeaderCostumer />
+            <Header />
 
         <Main>
             <Banner>

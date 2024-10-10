@@ -1,7 +1,7 @@
 import { IoIosArrowBack  } from "react-icons/io";
 import { FiPlus, FiMinus } from "react-icons/fi";
 
-import { HeaderCostumer } from "../../components/HeaderCostumer";
+import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Button } from "../../components/Button";
 import { Link } from "../../components/Link";
@@ -13,7 +13,7 @@ import { Container, Main, Description, Tags, ButtonWrapper, QuantitySelecter } f
 export function Details() {
     return (
         <Container>
-            <HeaderCostumer />
+            <Header />
 
             <Link
                 icon={IoIosArrowBack}
