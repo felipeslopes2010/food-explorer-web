@@ -1,4 +1,4 @@
-import { IoIosArrowBack  } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
 import { FiPlus, FiMinus } from "react-icons/fi";
 
 import { Header } from "../../components/Header";
@@ -11,6 +11,8 @@ import salada from "../../assets/dishes/salada.png"
 import { Container, Main, Description, Tags, ButtonWrapper, QuantitySelecter } from "./styles"
 
 export function Details() {
+    const user = "admin";
+
     return (
         <Container>
             <Header />
@@ -36,15 +38,24 @@ export function Details() {
                         <Tag title="tomate" />
                     </Tags>
 
-                    <ButtonWrapper>
-                        <QuantitySelecter>
-                            <FiMinus />
-                            <span>01</span>
-                            <FiPlus />
-                        </QuantitySelecter>
+                    {
+                        user !== "admin" ? (
+                            <ButtonWrapper>
+                                <QuantitySelecter>
+                                    <FiMinus />
+                                    <span>01</span>
+                                    <FiPlus />
+                                </QuantitySelecter>
+    
+                                <Button title="incluir ∙ R$ 25,00" />
+                            </ButtonWrapper>
+                        ) : (
+                            <ButtonWrapper>
+                                <Button title="Editar prato" />
+                            </ButtonWrapper>
+                        )
+                    }
 
-                        <Button title="incluir ∙ R$ 25,00" />
-                    </ButtonWrapper>
                 </Description>
             </Main>
 
