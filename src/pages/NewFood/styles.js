@@ -95,3 +95,17 @@ export const InputWrapper = styled.div`
         background: ${({ theme }) => theme.COLORS.DARK_800};
     }
 `;
+
+export const ButtonWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    gap: 32px;
+    justify-content: end;
+
+    > button {
+        width: 172px;
+        padding: 12px 24px;
+        
+        background: ${({ theme }) => theme.COLORS.TOMATO_400};
+    }
+`;

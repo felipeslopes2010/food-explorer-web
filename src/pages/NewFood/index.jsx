@@ -8,7 +8,7 @@ import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
 import { Link } from "../../components/Link";
 
-import { Container, Main, Form, InputWrapper } from "./styles"
+import { Container, Main, Form, InputWrapper, ButtonWrapper } from "./styles"
 
 export function NewFood() {
     return (
@@ -66,9 +66,11 @@ export function NewFood() {
                         />
                     </InputWrapper>
 
-                    <Button
-                        title="Salvar alterações"
-                    />
+                    <ButtonWrapper>
+                        <Button
+                            title="Salvar alterações"
+                        />
+                    </ButtonWrapper>
                 </Form>
             </Main>
             <Footer />
