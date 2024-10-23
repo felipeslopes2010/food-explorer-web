@@ -14,7 +14,7 @@ export function Header() {
 
     const navigate = useNavigate();
 
-    function handleHome() {
+    function handleBack() {
         navigate('/');
     }
 
@@ -24,7 +24,7 @@ export function Header() {
 
     return (
         <Container>
-            <Logo onClick={handleHome}>
+            <Logo onClick={handleBack}>
                 <img src={logo} alt="Logo Food Explorer" />
                 <div className="logo-wrapper">
                     <h2>food explorer</h2>

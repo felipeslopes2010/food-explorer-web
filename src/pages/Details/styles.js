@@ -5,15 +5,16 @@ export const Container = styled.div`
     flex-direction: column;
     height: 100vh;
 
-    > span {
+    > a {
         display: flex;
         align-items: center;
         
         margin: 32px 0px 42px 122px;
 
-        font-family: 'Popins', serif;
+        font-family: 'Poppins', serif;
         font-size: 24px;
         font-weight: 700;
+        line-height: 140%;
         color: ${({ theme }) => theme.COLORS.LIGHT_300};
 
         > svg {

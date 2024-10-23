@@ -15,6 +15,14 @@ export const Container = styled.button`
     font-size: 14px;
     font-weight: 500;
 
-    color: ${({theme}) => theme.COLORS.LIGHT_100};
-    background-color: ${({theme}) => theme.COLORS.TOMATO_100};
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
+
+    &:hover {
+        background-color: ${({ theme }) => theme.COLORS.TOMATO_200};
+    }
+
+    &:active {
+        background-color: ${({ theme }) => theme.COLORS.TOMATO_300};
+    }
 `;

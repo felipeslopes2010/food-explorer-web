@@ -66,7 +66,7 @@ export function Details() {
                             <ButtonWrapper>
                                 <Button
                                     title="Editar prato"
-                                    onClick={handleEditDish}    
+                                    onClick={handleEditDish}
                                 />
                             </ButtonWrapper>
                         )

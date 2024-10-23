@@ -1,5 +1,3 @@
-import { useNavigate } from "react-router-dom";
-
 import { Input } from "../../components/Input"
 import { Button } from "../../components/Button"
 import { Link } from "../../components/Link"
@@ -7,12 +5,6 @@ import { Link } from "../../components/Link"
 import { Container, InputWrapper, Logo, Form } from "./styles";
 
 export function SignUp() {
-    const navigate = useNavigate();
-
-    function handleNavigate() {
-        navigate('/');
-    }
-
     return (
         <Container>
             <Logo>
@@ -54,9 +46,8 @@ export function SignUp() {
 
                 <Button title="Criar conta" />
 
-                <Link 
+                <Link to="/"
                     title="Já tenho uma conta"
-                    onClick={handleNavigate}
                 />
             </Form>
         </Container>

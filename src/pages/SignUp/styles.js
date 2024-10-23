@@ -58,4 +58,18 @@ export const Form = styled.form`
 
         margin-bottom: 32px;
     }
+
+    > button {
+        margin-bottom: 32px;
+    }
+
+    > a {
+        width: auto;
+        margin: 0 auto;
+        font-family: Poppins;
+        font-size: 14px;
+        font-weight: 500;
+        color: ${({theme}) => theme.COLORS.LIGHT_100};
+        line-height: 24px;
+    }
 `;

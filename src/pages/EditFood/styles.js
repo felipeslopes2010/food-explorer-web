@@ -14,7 +14,7 @@ export const Main = styled.div`
     flex: 1;
     padding: 40px 124px 116px;
 
-    > span {
+    > a {
         display: flex;
         align-items: center;
 

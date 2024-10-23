@@ -1,5 +1,3 @@
-import { useNavigate } from "react-router-dom";
-
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { Link } from "../../components/Link";
@@ -7,12 +5,6 @@ import { Link } from "../../components/Link";
 import { Container, Logo, Form, InputWrapper } from "./styles";
 
 export function SignIn() {
-    const navigate = useNavigate();
-
-    function handleNavigate() {
-        navigate('/register');
-    }
-
     return (
         <Container>
             <Logo>
@@ -42,11 +34,13 @@ export function SignIn() {
                     />
                 </InputWrapper>
 
-                <Button title="Entrar" />
+                <Button 
+                    title="Entrar"
+                />
 
-                <Link 
+                <Link
+                    to="/register"
                     title="Criar uma conta"
-                    onClick={handleNavigate}
                 />
             </Form>
         </Container>
