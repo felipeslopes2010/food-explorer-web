@@ -12,13 +12,13 @@ export const Main = styled.div`
     flex-direction: column;
    
     flex: 1;
-    padding: 40px 124px 116px;
+    padding: 0px 124px 116px;
 
     > a {
         display: flex;
         align-items: center;
 
-        margin-bottom: 24px;
+        margin: 32px 0px 24px;
 
         font-family: 'Poppins', serif;
         font-size: 24px;

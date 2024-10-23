@@ -17,10 +17,6 @@ export function Details() {
 
     const navigate = useNavigate();
 
-    function handleBack() {
-        navigate(-1);
-    }
-
     function handleEditDish() {
         navigate('/edit/1');
     }
@@ -29,10 +25,9 @@ export function Details() {
         <Container>
             <Header />
 
-            <Link
+            <Link to="/"
                 icon={IoIosArrowBack}
                 title="voltar"
-                onClick={handleBack}
             />
 
             <Main>

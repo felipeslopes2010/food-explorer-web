@@ -14,18 +14,13 @@ import { Container, Main, Form, InputWrapper, ButtonWrapper } from "./styles"
 export function NewFood() {
     const navigate = useNavigate();
 
-    function handleBack() {
-        navigate(-1);
-    }
-
     return (
         <Container>
             <Header />
             <Main>
-                <Link
+                <Link to="/"
                     icon={IoIosArrowBack}
                     title="voltar"
-                    onClick={handleBack}
                 />
 
                 <h1>Adicionar prato</h1>

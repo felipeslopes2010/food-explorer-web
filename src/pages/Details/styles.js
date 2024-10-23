@@ -9,7 +9,7 @@ export const Container = styled.div`
         display: flex;
         align-items: center;
         
-        margin: 32px 0px 42px 122px;
+        margin: 32px 0px 42px 124px;
 
         font-family: 'Poppins', serif;
         font-size: 24px;
@@ -32,7 +32,7 @@ export const Main = styled.div`
     justify-content: center;
     flex: 1;
 
-    margin: 0px 120px 155px;
+    margin: 0px 120px 152px;
 
     gap: 48px;
 
