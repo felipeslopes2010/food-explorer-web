@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { FiUpload } from "react-icons/fi";
 
@@ -11,6 +12,12 @@ import { Link } from "../../components/Link";
 import { Container, Main, Form, InputWrapper, ButtonWrapper } from "./styles"
 
 export function EditFood() {
+    const navigate = useNavigate();
+
+    function handleBack() {
+        navigate(-1);
+    }
+
     return (
         <Container>
             <Header />
@@ -18,6 +25,7 @@ export function EditFood() {
                 <Link
                     icon={IoIosArrowBack}
                     title="voltar"
+                    onClick={handleBack}
                 />
 
                 <h1>Editar prato</h1>

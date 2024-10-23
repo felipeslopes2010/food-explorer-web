@@ -1,10 +1,18 @@
-import { Input } from "../../components/Input"
-import { Button } from "../../components/Button"
-import { Link } from "../../components/Link"
+import { useNavigate } from "react-router-dom";
 
-import { Container, Logo, Form, InputWrapper } from "./styles"
+import { Input } from "../../components/Input";
+import { Button } from "../../components/Button";
+import { Link } from "../../components/Link";
+
+import { Container, Logo, Form, InputWrapper } from "./styles";
 
 export function SignIn() {
+    const navigate = useNavigate();
+
+    function handleNavigate() {
+        navigate('/register');
+    }
+
     return (
         <Container>
             <Logo>
@@ -22,7 +30,7 @@ export function SignIn() {
                         type="email"
                         maxLength="30"
                     />
-                  </InputWrapper>
+                </InputWrapper>
 
                 <InputWrapper>
                     <label htmlFor="password">Senha</label>
@@ -36,8 +44,11 @@ export function SignIn() {
 
                 <Button title="Entrar" />
 
-                <Link title="Criar uma conta" />
+                <Link 
+                    title="Criar uma conta"
+                    onClick={handleNavigate}
+                />
             </Form>
         </Container>
-    )
+    );
 }

@@ -1,6 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 import { FiSearch, FiLogOut } from "react-icons/fi";
 import { PiReceiptLight } from "react-icons/pi";
-
 
 import { Input } from "../Input";
 import { Button } from "../Button";
@@ -11,9 +12,19 @@ import { Container, Logo } from "./styles"
 export function Header() {
     const role = "admin";
 
+    const navigate = useNavigate();
+
+    function handleHome() {
+        navigate('/');
+    }
+
+    function handleNewDish() {
+        navigate('/new');
+    }
+
     return (
         <Container>
-            <Logo>
+            <Logo onClick={handleHome}>
                 <img src={logo} alt="Logo Food Explorer" />
                 <div className="logo-wrapper">
                     <h2>food explorer</h2>
@@ -32,6 +43,7 @@ export function Header() {
                 role === "admin" ? (
                     <Button
                         title="Novo prato"
+                        onClick={handleNewDish}
                     />
                 ) : (
                     <Button

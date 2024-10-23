@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import { IoIosArrowBack } from "react-icons/io";
 import { FiPlus, FiMinus } from "react-icons/fi";
 
@@ -13,6 +15,16 @@ import { Container, Main, Description, Tags, ButtonWrapper, QuantitySelecter } f
 export function Details() {
     const user = "admin";
 
+    const navigate = useNavigate();
+
+    function handleBack() {
+        navigate(-1);
+    }
+
+    function handleEditDish() {
+        navigate('/edit/1');
+    }
+
     return (
         <Container>
             <Header />
@@ -20,6 +32,7 @@ export function Details() {
             <Link
                 icon={IoIosArrowBack}
                 title="voltar"
+                onClick={handleBack}
             />
 
             <Main>
@@ -51,7 +64,10 @@ export function Details() {
                             </ButtonWrapper>
                         ) : (
                             <ButtonWrapper>
-                                <Button title="Editar prato" />
+                                <Button
+                                    title="Editar prato"
+                                    onClick={handleEditDish}    
+                                />
                             </ButtonWrapper>
                         )
                     }
