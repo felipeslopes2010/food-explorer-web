@@ -24,6 +24,10 @@ export function NewFood() {
         }
     }
 
+    function handleRemoveIngredient(deleted) {
+        setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
+    }
+
     return (
         <Container>
             <Header />
@@ -66,7 +70,7 @@ export function NewFood() {
                                         <IngredientsItem
                                             key={index}
                                             value={ingredient}
-                                            onClick={() => { }}
+                                            onClick={() => handleRemoveIngredient(ingredient)}
                                         />
                                  ))
                             }
