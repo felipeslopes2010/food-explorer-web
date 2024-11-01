@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/auth";
 
 import { FiSearch, FiLogOut } from "react-icons/fi";
 import { PiReceiptLight } from "react-icons/pi";
@@ -11,6 +12,7 @@ import { Container, Logo } from "./styles"
 
 export function Header() {
     const role = "admin";
+    const { signOut } = useAuth();
 
     const navigate = useNavigate();
 
@@ -53,7 +55,10 @@ export function Header() {
                 )
             }
 
-            <FiLogOut aria-label="Sair" />
+            <FiLogOut
+                aria-label="Sair"
+                onClick={signOut}
+            />
         </Container>
     )
 }
