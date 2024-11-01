@@ -1,4 +1,5 @@
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+
 import { IoIosArrowBack } from "react-icons/io";
 import { FiUpload } from "react-icons/fi";
 
@@ -13,7 +14,21 @@ import { Link } from "../../components/Link";
 import { Container, Main, Form, InputWrapper, ButtonWrapper } from "./styles"
 
 export function NewFood() {
-    const navigate = useNavigate();
+    const [ingredients, setIngredients] = useState([]);
+    const [newIngredient, setNewIngredient] = useState("");
+
+    function handleAddIngredient() {
+        if(newIngredient.trim()) {
+            setIngredients(prevState => [...prevState, newIngredient]);
+            setNewIngredient("");
+        }
+    }
+
+    useEffect(() => {
+        handleAddIngredient();
+        console.log(ingredients);
+        
+    }, [ingredients]);
 
     return (
         <Container>
@@ -52,8 +67,22 @@ export function NewFood() {
                     <InputWrapper>
                         <label>Ingredientes</label>
                         <Input>
-                            <IngredientsItem value="Pão Naan" />
-                            <IngredientsItem placeholder="Adicionar" isnew />
+                            {
+                                ingredients.map((ingredient, index) => (
+                                        <IngredientsItem
+                                            key={index}
+                                            value={ingredient}
+                                            onClick={() => { }}
+                                        />
+                                 ))
+                            }
+                            <IngredientsItem
+                                isnew
+                                placeholder="Adicionar"
+                                value={newIngredient}
+                                onChange={e => setNewIngredient(e.target.value)}
+                                onClick={handleAddIngredient}
+                            />
                         </Input>
                     </InputWrapper>
 
