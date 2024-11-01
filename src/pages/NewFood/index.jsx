@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { FiUpload } from "react-icons/fi";
 
+import { IngredientsItem } from "../../components/IngredientsItem";
 import { TextArea } from "../../components/TextArea";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
@@ -50,9 +51,10 @@ export function NewFood() {
 
                     <InputWrapper>
                         <label>Ingredientes</label>
-                        <Input
-                            placeholder="Refeição"
-                        />
+                        <Input>
+                            <IngredientsItem value="Pão Naan" />
+                            <IngredientsItem placeholder="Adicionar" isnew />
+                        </Input>
                     </InputWrapper>
 
                     <InputWrapper>

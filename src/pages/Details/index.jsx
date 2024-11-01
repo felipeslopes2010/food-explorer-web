@@ -8,10 +8,10 @@ import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Button } from "../../components/Button";
 import { Link } from "../../components/Link";
-import { Tag } from "../../components/Tag";
+import { IngredientsItem } from "../../components/IngredientsItem";
 
 import salada from "../../assets/dishes/salada.png"
-import { Container, Main, Description, Tags, ButtonWrapper, QuantitySelecter } from "./styles"
+import { Container, Main, Description, IngredientsItems, ButtonWrapper, QuantitySelecter } from "./styles"
 
 export function Details() {
     const { user } = useAuth();
@@ -38,14 +38,14 @@ export function Details() {
                     <h1>Salada Ravanello</h1>
                     <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial.</p>
 
-                    <Tags>
-                        <Tag title="alface" />
-                        <Tag title="cebola" />
-                        <Tag title="pão naan" />
-                        <Tag title="pepino" />
-                        <Tag title="rabanete" />
-                        <Tag title="tomate" />
-                    </Tags>
+                    <IngredientsItems>
+                        <IngredientsItem title="alface" />
+                        <IngredientsItem title="cebola" />
+                        <IngredientsItem title="pão naan" />
+                        <IngredientsItem title="pepino" />
+                        <IngredientsItem title="rabanete" />
+                        <IngredientsItem title="tomate" />
+                    </IngredientsItems>
 
                     {
                         user.role !== "admin" ? (

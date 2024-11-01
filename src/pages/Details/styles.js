@@ -62,7 +62,7 @@ export const Description = styled.div`
     }
 `;
 
-export const Tags = styled.div`
+export const IngredientsItems = styled.div`
     display: flex;
     align-items: center;
     justify-content: ce;

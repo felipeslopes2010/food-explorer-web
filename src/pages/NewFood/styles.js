@@ -66,6 +66,9 @@ export const Form = styled.form`
 
     > div:nth-of-type(4) {
         width: 75%;
+        > div {
+            padding: 0px;
+        }
     }
 
     > div:nth-of-type(5) {
@@ -93,6 +96,10 @@ export const InputWrapper = styled.div`
 
     > div {
         background: ${({ theme }) => theme.COLORS.DARK_800};
+    }
+
+    > div > div:first-of-type {
+        margin: 8px 0px 8px 8px;
     }
 `;
 
