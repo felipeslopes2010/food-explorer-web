@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { api } from "../../services/api";
 
 import { IoIosArrowBack } from "react-icons/io";
 import { FiUpload } from "react-icons/fi";
@@ -11,14 +14,20 @@ import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
 import { Link } from "../../components/Link";
 
-import { Container, Main, Form, InputWrapper, ButtonWrapper } from "./styles"
+import { Container, Main, Form, InputWrapper, ButtonWrapper } from "./styles";
 
 export function NewFood() {
+    const [name, setName] = useState("");
+    const [category, setCategory] = useState("");
     const [ingredients, setIngredients] = useState([]);
     const [newIngredient, setNewIngredient] = useState("");
+    const [price, setPrice] = useState("");
+    const [description, setDescription] = useState("");
+
+    const navigate = useNavigate();
 
     function handleAddIngredient() {
-        if(newIngredient.trim()) {
+        if (newIngredient.trim()) {
             setIngredients(prevState => [...prevState, newIngredient]);
             setNewIngredient("");
         }
@@ -28,30 +37,41 @@ export function NewFood() {
         setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
     }
 
+    async function handleNewDish(e) {
+        e.preventDefault();
+
+        await api.post("/dishes", {
+            name,
+            category,
+            ingredients,
+            price,
+            description
+        });
+
+        alert("Prato criado com sucesso!");
+        navigate("/");
+    }
+
     return (
         <Container>
             <Header />
             <Main>
-                <Link to="/"
-                    icon={IoIosArrowBack}
-                    title="voltar"
-                />
+                <Link to="/" icon={IoIosArrowBack} title="voltar" />
 
                 <h1>Adicionar prato</h1>
 
                 <Form>
                     <InputWrapper>
                         <label>Imagem do prato</label>
-                        <Input
-                            icon={FiUpload}
-                            placeholder="Selecione imagem"
-                        />
+                        <Input icon={FiUpload} placeholder="Selecione imagem" />
                     </InputWrapper>
 
                     <InputWrapper>
                         <label>Nome</label>
                         <Input
                             placeholder="Ex.: Salada Ceasar"
+                            value={name}
+                            onChange={e => setName(e.target.value)}
                         />
                     </InputWrapper>
 
@@ -59,6 +79,8 @@ export function NewFood() {
                         <label>Categoria</label>
                         <Input
                             placeholder="Refeição"
+                            value={category}
+                            onChange={e => setCategory(e.target.value)}
                         />
                     </InputWrapper>
 
@@ -67,12 +89,12 @@ export function NewFood() {
                         <Input>
                             {
                                 ingredients.map((ingredient, index) => (
-                                        <IngredientsItem
-                                            key={index}
-                                            value={ingredient}
-                                            onClick={() => handleRemoveIngredient(ingredient)}
-                                        />
-                                 ))
+                                    <IngredientsItem
+                                        key={index}
+                                        value={ingredient}
+                                        onClick={() => handleRemoveIngredient(ingredient)}
+                                    />
+                                ))
                             }
                             <IngredientsItem
                                 isnew
@@ -88,6 +110,8 @@ export function NewFood() {
                         <label>Preço</label>
                         <Input
                             placeholder="R$ 00,00"
+                            value={price}
+                            onChange={e => setPrice(e.target.value)}
                         />
                     </InputWrapper>
 
@@ -95,17 +119,21 @@ export function NewFood() {
                         <label>Descrição</label>
                         <TextArea
                             placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+                            value={description}
+                            onChange={e => setDescription(e.target.value)}
                         />
                     </InputWrapper>
 
                     <ButtonWrapper>
                         <Button
+                            type="submit"
                             title="Salvar alterações"
+                            onClick={e => handleNewDish(e)}
                         />
                     </ButtonWrapper>
                 </Form>
             </Main>
             <Footer />
         </Container>
-    )
+    );
 }
