@@ -1,3 +1,4 @@
+import { useAuth } from "../../hooks/auth";
 import { useNavigate } from "react-router-dom";
 
 import { IoIosArrowBack } from "react-icons/io";
@@ -13,7 +14,7 @@ import salada from "../../assets/dishes/salada.png"
 import { Container, Main, Description, Tags, ButtonWrapper, QuantitySelecter } from "./styles"
 
 export function Details() {
-    const user = "admin";
+    const { user } = useAuth();
 
     const navigate = useNavigate();
 
@@ -47,7 +48,7 @@ export function Details() {
                     </Tags>
 
                     {
-                        user !== "admin" ? (
+                        user.role !== "admin" ? (
                             <ButtonWrapper>
                                 <QuantitySelecter>
                                     <FiMinus />

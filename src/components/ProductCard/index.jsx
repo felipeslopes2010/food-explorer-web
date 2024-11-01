@@ -1,3 +1,5 @@
+import { useAuth } from "../../hooks/auth";
+
 import { FiPlus, FiMinus, FiHeart } from "react-icons/fi";
 import { PiPencilSimpleLight } from "react-icons/pi";
 
@@ -7,12 +9,13 @@ import { Container, ButtonWrapper } from "./styles";
 
 export function ProductCard({ image, name, description, price, onEdit, ...rest }) {
     const quantity = 1;
-    const user = "admin"
+
+    const { user } = useAuth();
 
     return (
         <Container {...rest}>
             {
-                user === "admin" ? <PiPencilSimpleLight onClick={onEdit} /> : <FiHeart />
+                user.role === "admin" ? <PiPencilSimpleLight onClick={onEdit} /> : <FiHeart />
             }
 
             <img src={image} alt="Imagem Prato" /> 
@@ -21,7 +24,7 @@ export function ProductCard({ image, name, description, price, onEdit, ...rest }
             <span>{price}</span>
 
             {
-                user !== "admin" &&
+                user.role !== "admin" &&
                 <ButtonWrapper>
                     <div className="quantity-wrapper">
                         <button><FiMinus /></button>

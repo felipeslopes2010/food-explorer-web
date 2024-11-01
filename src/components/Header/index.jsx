@@ -11,8 +11,7 @@ import logo from "../../assets/polygon.svg";
 import { Container, Logo } from "./styles"
 
 export function Header() {
-    const role = "admin";
-    const { signOut } = useAuth();
+    const { user, signOut } = useAuth();
 
     const navigate = useNavigate();
 
@@ -31,7 +30,7 @@ export function Header() {
                 <div className="logo-wrapper">
                     <h2>food explorer</h2>
                     {
-                        role === "admin" && <span>admin</span>
+                        user.role === "admin" && <span>admin</span>
                     }
                 </div>
             </Logo>
@@ -42,7 +41,7 @@ export function Header() {
             />
 
             {
-                role === "admin" ? (
+                user.role === "admin" ? (
                     <Button
                         title="Novo prato"
                         onClick={handleNewDish}
