@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { IoIosArrowBack } from "react-icons/io";
 import { FiUpload } from "react-icons/fi";
@@ -23,12 +23,6 @@ export function NewFood() {
             setNewIngredient("");
         }
     }
-
-    useEffect(() => {
-        handleAddIngredient();
-        console.log(ingredients);
-        
-    }, [ingredients]);
 
     return (
         <Container>
