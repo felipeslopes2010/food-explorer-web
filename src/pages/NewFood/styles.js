@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const Main = styled.div`
     display: flex;
     flex-direction: column;
-   
+
     flex: 1;
     padding: 0px 124px 116px;
 
@@ -25,7 +25,7 @@ export const Main = styled.div`
         font-weight: 700;
         line-height: 140%;
         color: ${({ theme }) => theme.COLORS.LIGHT_300};
-        
+
         > svg {
             width: 32px;
             height: 32px;
@@ -48,16 +48,45 @@ export const Main = styled.div`
 
 export const Form = styled.form`
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     align-items: flex-start;
     gap: 32px;
+
+    > div:first-of-type > div {
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 14px;
+        gap: 14px;
+        background-color: ${({ theme }) => theme.COLORS.DARK_800};
+        border-radius: 8px;
+        cursor: pointer;
+
+        > input {
+            width: 100%;
+            color: ${({ theme }) => theme.COLORS.LIGHT_100};
+            background-color: transparent;
+            border: none;
+
+            &::placeholder {
+                color: ${({ theme }) => theme.COLORS.LIGHT_500};
+            }
+        }
+
+        > span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+}
 
     > div:nth-of-type(1) {
         width: 20%;
     }
 
     > div:nth-of-type(2) {
-       width: 40%;
+        width: 40%;
     }
 
     > div:nth-of-type(3) {
@@ -96,10 +125,23 @@ export const InputWrapper = styled.div`
 
     > div {
         background: ${({ theme }) => theme.COLORS.DARK_800};
+        display: flex;
+        align-items: center;
+        padding: 8px;
     }
 
-    > div > div:first-of-type {
-        margin: 8px 0px 8px 8px;
+    > div > input[type="file"] {
+        display: none;
+        width: 100%;
+    }
+
+    > div > label {
+        cursor: pointer;
+        padding: 10px 20px;
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
+        border-radius: 8px;
+        font-size: 14px;
+        text-align: center;
     }
 `;
 
@@ -112,7 +154,7 @@ export const ButtonWrapper = styled.div`
     > button {
         width: 172px;
         padding: 12px 24px;
-        
+
         background: ${({ theme }) => theme.COLORS.TOMATO_400};
     }
 `;

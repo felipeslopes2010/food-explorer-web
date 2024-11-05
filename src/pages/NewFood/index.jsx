@@ -17,6 +17,7 @@ import { Link } from "../../components/Link";
 import { Container, Main, Form, InputWrapper, ButtonWrapper } from "./styles";
 
 export function NewFood() {
+    const [fileName, setFileName] = useState("");
     const [name, setName] = useState("");
     const [category, setCategory] = useState("");
     const [ingredients, setIngredients] = useState([]);
@@ -35,6 +36,14 @@ export function NewFood() {
 
     function handleRemoveIngredient(deleted) {
         setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
+    }
+
+    function handleFileChange(e) {
+        const file = e.target.files[0];
+
+        if (file) {
+            setFileName(file.name);
+        }
     }
 
     async function handleNewDish(e) {
@@ -63,7 +72,18 @@ export function NewFood() {
                 <Form>
                     <InputWrapper>
                         <label>Imagem do prato</label>
-                        <Input icon={FiUpload} placeholder="Selecione imagem" />
+                        <div
+                            onClick={() => document.getElementById("imageInput").click()}
+                        >
+                            <FiUpload size={16} />
+                            {fileName ? <span>{fileName}</span> : <span>Selecione imagem</span>}
+                            <input 
+                                id="imageInput" 
+                                type="file" 
+                                onChange={handleFileChange}
+                            />
+                        </div>
+
                     </InputWrapper>
 
                     <InputWrapper>
@@ -87,15 +107,13 @@ export function NewFood() {
                     <InputWrapper>
                         <label>Ingredientes</label>
                         <Input>
-                            {
-                                ingredients.map((ingredient, index) => (
-                                    <IngredientsItem
-                                        key={index}
-                                        value={ingredient}
-                                        onClick={() => handleRemoveIngredient(ingredient)}
-                                    />
-                                ))
-                            }
+                            {ingredients.map((ingredient, index) => (
+                                <IngredientsItem
+                                    key={index}
+                                    value={ingredient}
+                                    onClick={() => handleRemoveIngredient(ingredient)}
+                                />
+                            ))}
                             <IngredientsItem
                                 isnew
                                 placeholder="Adicionar"
