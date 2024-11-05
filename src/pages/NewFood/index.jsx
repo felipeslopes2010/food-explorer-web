@@ -49,6 +49,20 @@ export function NewFood() {
     async function handleNewDish(e) {
         e.preventDefault();
 
+        if(!name) {
+            return alert("Nome obrigatório!")
+        } else if(!category) {
+            return alert("Categoria obrigatória!")
+        } else if(ingredients.length === 0) {
+            return alert("Informe pelo menos um ingrediente!")
+        } else if(newIngredient) {
+            return alert("Você deixou um ingrediente no campo para adicionar, mas não clicou em adicionar! Clique para adicionar ou deixa o campo vazio.")
+        } else if(!price) {
+            return alert("Preço obrigatório!")
+        } else if(!description) {
+            return alert("Descrição obrigatória!")
+        }
+
         await api.post("/dishes", {
             name,
             category,
