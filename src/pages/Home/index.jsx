@@ -31,8 +31,8 @@ export function Home() {
     
     const navigate = useNavigate();
     
-    function handleDetails() {
-        navigate('/details/1');
+    function handleDetails(dishId) {
+        navigate(`/details/${dishId}`);
     }
     
     function handleEdit(event) {
@@ -77,13 +77,13 @@ export function Home() {
                 dishes &&
                     dishes.map(dish => (
                             <ProductCard
-                                key={dish.id}
+                                key={String(dish.id)}
                                 image={dish.image}
                                 name={dish.name}
                                 description={dish.description}
                                 price={`R$ ${dish.price}`}
                                 onEdit={handleEdit}
-                                onClick={handleDetails}
+                                onClick={() => handleDetails(dish.id)}
                             />
                         ))
             }

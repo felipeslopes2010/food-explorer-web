@@ -49,7 +49,7 @@ export const Form = styled.form`
     padding: 64px;
 
     > h2 {
-        font-family: Poppins;
+        font-family: 'Poppins', serif;
         font-size: 32px;
         font-weight: 500;
         line-height: 140%;
@@ -66,7 +66,7 @@ export const Form = styled.form`
     > a {
         width: auto;
         margin: 0 auto;
-        font-family: Poppins;
+        font-family: 'Poppins', serif;
         font-size: 14px;
         font-weight: 500;
         color: ${({theme}) => theme.COLORS.LIGHT_100};

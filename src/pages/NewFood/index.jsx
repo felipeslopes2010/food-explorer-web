@@ -123,7 +123,7 @@ export function NewFood() {
                         <Input>
                             {ingredients.map((ingredient, index) => (
                                 <IngredientsItem
-                                    key={index}
+                                    key={String(index)}
                                     value={ingredient}
                                     onClick={() => handleRemoveIngredient(ingredient)}
                                 />

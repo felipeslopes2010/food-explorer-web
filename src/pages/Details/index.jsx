@@ -1,5 +1,8 @@
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
 import { useAuth } from "../../hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { api } from "../../services/api";
 
 import { IoIosArrowBack } from "react-icons/io";
 import { FiPlus, FiMinus } from "react-icons/fi";
@@ -8,19 +11,28 @@ import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Button } from "../../components/Button";
 import { Link } from "../../components/Link";
-import { IngredientsItem } from "../../components/IngredientsItem";
 
-import salada from "../../assets/dishes/salada.png"
-import { Container, Main, Description, IngredientsItems, ButtonWrapper, QuantitySelecter } from "./styles"
+import { Container, Main, Description, IngredientsItems, IngredientsItem, ButtonWrapper, QuantitySelecter } from "./styles"
 
 export function Details() {
-    const { user } = useAuth();
+    const [data, setData] = useState(null);
 
+    const params = useParams();
+    const { user } = useAuth();
     const navigate = useNavigate();
 
     function handleEditDish() {
-        navigate('/edit/1');
+        navigate(`/edit/${params.id}`);
     }
+
+    useEffect(() => {
+        async function fetchDish() {
+            const response = await api.get(`/dishes/${params.id}`);
+            setData(response.data);
+        }
+
+        fetchDish();
+    }, []);
 
     return (
         <Container>
@@ -31,45 +43,56 @@ export function Details() {
                 title="voltar"
             />
 
-            <Main>
-                <img src={salada} alt="Imagem do Produto escolhido" />
+            {
+                data ? (
+                    <Main>
+                        <img src={`${api.defaults.baseURL}/files/${data.image}`} alt="Imagem do prato escolhido" />
+                        <Description>
+                            <h1>{data.name}</h1>
+                            <p>{data.description}</p>
 
-                <Description>
-                    <h1>Salada Ravanello</h1>
-                    <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial.</p>
+                            {
+                                data.ingredients && 
+                                    <IngredientsItems>
+                                        {
+                                            data.ingredients.map(ingredient => (
+                                                <IngredientsItem
+                                                    key={String(ingredient.id)}
+                                                >
+                                                    <span>{ingredient.name}</span>
+                                                </IngredientsItem>
+                                            ))
+                                        }
+                                    </IngredientsItems>
+                            }
 
-                    <IngredientsItems>
-                        <IngredientsItem title="alface" />
-                        <IngredientsItem title="cebola" />
-                        <IngredientsItem title="pão naan" />
-                        <IngredientsItem title="pepino" />
-                        <IngredientsItem title="rabanete" />
-                        <IngredientsItem title="tomate" />
-                    </IngredientsItems>
+                            {
+                                user.role !== "admin" ? (
+                                    <ButtonWrapper>
+                                        <QuantitySelecter>
+                                            <FiMinus />
+                                            <span>01</span>
+                                            <FiPlus />
+                                        </QuantitySelecter>
 
-                    {
-                        user.role !== "admin" ? (
-                            <ButtonWrapper>
-                                <QuantitySelecter>
-                                    <FiMinus />
-                                    <span>01</span>
-                                    <FiPlus />
-                                </QuantitySelecter>
-    
-                                <Button title="incluir ∙ R$ 25,00" />
-                            </ButtonWrapper>
-                        ) : (
-                            <ButtonWrapper>
-                                <Button
-                                    title="Editar prato"
-                                    onClick={handleEditDish}
-                                />
-                            </ButtonWrapper>
-                        )
-                    }
+                                        <Button title="incluir ∙ R$ 25,00" />
+                                    </ButtonWrapper>
+                                ) : (
+                                    <ButtonWrapper>
+                                        <Button
+                                            title="Editar prato"
+                                            onClick={handleEditDish}
+                                        />
+                                    </ButtonWrapper>
+                                )
+                            }
+                        </Description>
+                    </Main>
 
-                </Description>
-            </Main>
+                ) : (
+                    <p>Carregando...</p>
+                )
+            }
 
             <Footer />
         </Container>

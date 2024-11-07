@@ -44,7 +44,7 @@ export const Main = styled.div`
 
 export const Description = styled.div`
     > h1 {
-        font-family: Poppins;
+        font-family: 'Poppins', serif;
         font-size: 40px;
         font-weight: 500;
         line-height: 140%;
@@ -54,7 +54,7 @@ export const Description = styled.div`
     > p {
         margin: 24px 0px 24px;
 
-        font-family: Poppins;
+        font-family: 'Poppins', serif;
         font-size: 24px;
         font-weight: 400;
         line-height: 140%;
@@ -65,8 +65,22 @@ export const Description = styled.div`
 export const IngredientsItems = styled.div`
     display: flex;
     align-items: center;
-    justify-content: ce;
     gap: 12px;
+`;
+
+export const IngredientsItem = styled.div`
+    padding: 4px 8px;
+    border-radius: 5px;
+    background-color: ${({ theme }) => theme.COLORS.DARK_1000};
+
+    > span {
+        color: var(--Light-Light-100, #FFF);
+        text-align: center;
+
+        font-family: 'Poppins', serif;
+        font-size: 14px;
+        line-height: 24px;
+    }
 `;
 
 export const ButtonWrapper = styled.div`
