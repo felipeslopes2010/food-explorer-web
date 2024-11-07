@@ -1,5 +1,7 @@
 import { useAuth } from "../../hooks/auth";
 
+import { api } from "../../services/api";
+
 import { FiPlus, FiMinus, FiHeart } from "react-icons/fi";
 import { PiPencilSimpleLight } from "react-icons/pi";
 
@@ -18,7 +20,7 @@ export function ProductCard({ image, name, description, price, onEdit, ...rest }
                 user.role === "admin" ? <PiPencilSimpleLight onClick={onEdit} /> : <FiHeart />
             }
 
-            <img src={image} alt="Imagem Prato" /> 
+            <img src={`${api.defaults.baseURL}/files/${image}`} alt="Imagem Prato" /> 
             <h3>{name}</h3>
             <p>{description}</p>
             <span>{price}</span>

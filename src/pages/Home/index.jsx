@@ -1,4 +1,7 @@
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
+import { api } from "../../services/api";
 
 import { IoIosArrowBack, IoIosArrowForward  } from "react-icons/io";
 
@@ -23,21 +26,38 @@ import chaMaca from "../../assets/dishes/cha-maca.png"
 import { Container, Main, Banner, Products } from "./styles";
 
 export function Home() {
+    const [dishes, setDishes] = useState([]);
+    const [search, setSearch] = useState("");
+    
     const navigate = useNavigate();
     
     function handleDetails() {
         navigate('/details/1');
     }
-
+    
     function handleEdit(event) {
        event.stopPropagation();
         
         navigate('/edit/1');
     }
 
+    useEffect(() => {
+        async function fetchDishes() {
+            if(search) {
+                const response = await api.get(`/dishes?name=${search}`);
+                setDishes(response.data);
+            } else {
+                const response = await api.get("/dishes");
+                setDishes(response.data);
+            }
+        }
+        
+        fetchDishes();
+    }, [dishes, search]);
+
     return(
         <Container>
-            <Header />
+            <Header onSearchChange={setSearch} />
 
         <Main>
             <Banner>
@@ -52,35 +72,21 @@ export function Home() {
 
             <Products>
                 <IoIosArrowBack />
-                <ProductCard
-                    image={salada}
-                    name="Salada Ravanello"
-                    description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim."
-                    price="R$ 49,97"
-                    onEdit={handleEdit}
-                    onClick={handleDetails}
-                />
 
-                <ProductCard
-                    image={spaguetti}
-                    name="Spaguetti Gambe"
-                    description="Massa fresca com camarões e pesto."
-                    price="R$ 79,97"
-                />
-
-                <ProductCard
-                    image={torradas}
-                    name="Torradas de Parma"
-                    description="Presunto de parma e rúcula em um pão com fermentação natural."
-                    price="R$ 49,97"
-                />
-
-                <ProductCard
-                    image={salada2}
-                    name="Salada Caesar"
-                    description="Salada clássica e popular que consiste em alface romana, croutons e queijo parmesão "
-                    price="R$ 35,97"
-                />
+            {
+                dishes &&
+                    dishes.map(dish => (
+                            <ProductCard
+                                key={dish.id}
+                                image={dish.image}
+                                name={dish.name}
+                                description={dish.description}
+                                price={`R$ ${dish.price}`}
+                                onEdit={handleEdit}
+                                onClick={handleDetails}
+                            />
+                        ))
+            }
 
             <IoIosArrowForward />
             </Products>

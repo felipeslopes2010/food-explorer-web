@@ -10,7 +10,7 @@ import logo from "../../assets/polygon.svg";
 
 import { Container, Logo } from "./styles"
 
-export function Header() {
+export function Header({ onSearchChange }) {
     const { user, signOut } = useAuth();
 
     const navigate = useNavigate();
@@ -38,6 +38,7 @@ export function Header() {
             <Input
                 icon={FiSearch}
                 placeholder="Busque por pratos ou ingredientes"
+                onChange={e => onSearchChange(e.target.value)}
             />
 
             {
