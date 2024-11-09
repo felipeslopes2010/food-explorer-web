@@ -70,6 +70,19 @@ export function EditFood() {
         navigate(`/details/${params.id}`);
     }
 
+    async function handleRemoveDish(e) {
+        e.preventDefault();
+        
+        const confirm = window.confirm("Deseja realmente excluir o prato?");
+        
+        if(confirm) {
+            await api.delete(`/dishes/${params.id}`);
+
+            alert("Prato removido com sucesso!");
+            navigate('/');
+        }
+    }
+
     useEffect(() => {
         async function fetchDish() {
             const response = await api.get(`/dishes/${params.id}`);
@@ -165,7 +178,10 @@ export function EditFood() {
                         </InputWrapper>
 
                         <ButtonWrapper>
-                            <Button title="Excluir prato" />
+                            <Button
+                                title="Excluir prato"
+                                onClick={handleRemoveDish}
+                            />
 
                             <Button
                                 title="Salvar alterações"
