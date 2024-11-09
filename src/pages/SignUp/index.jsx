@@ -32,7 +32,7 @@ export function SignUp() {
         api.post("/users", user)
             .then(() => {
                 alert("Usuário cadastrado com sucesso!");
-                navigate("/");
+                navigate(-1);
             })
             .catch(error => {
                 if (error.response) {

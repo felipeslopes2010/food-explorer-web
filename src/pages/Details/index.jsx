@@ -10,7 +10,6 @@ import { FiPlus, FiMinus } from "react-icons/fi";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Button } from "../../components/Button";
-import { Link } from "../../components/Link";
 
 import { Container, Main, Description, IngredientsItems, IngredientsItem, ButtonWrapper, QuantitySelecter } from "./styles"
 
@@ -23,6 +22,10 @@ export function Details() {
 
     function handleEditDish() {
         navigate(`/edit/${params.id}`);
+    }
+
+    function handleBack() {
+        navigate(-1);
     }
 
     useEffect(() => {
@@ -38,13 +41,16 @@ export function Details() {
         <Container>
             <Header />
 
-            <Link to="/"
-                icon={IoIosArrowBack}
-                title="voltar"
-            />
+            <button
+                type="button"
+                onClick={handleBack}
+            >
+                <IoIosArrowBack />
+                voltar
+            </button>
 
             {
-                data ? (
+                data &&
                     <Main>
                         <img src={`${api.defaults.baseURL}/files/${data.image}`} alt="Imagem do prato escolhido" />
                         <Description>
@@ -88,10 +94,6 @@ export function Details() {
                             }
                         </Description>
                     </Main>
-
-                ) : (
-                    <p>Carregando...</p>
-                )
             }
 
             <Footer />

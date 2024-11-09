@@ -12,7 +12,6 @@ import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
-import { Link } from "../../components/Link";
 
 import { Container, Main, Form, InputWrapper, ButtonWrapper } from "./styles";
 
@@ -83,6 +82,10 @@ export function EditFood() {
         }
     }
 
+    function handleBack() {
+        navigate(-1);
+    }
+
     useEffect(() => {
         async function fetchDish() {
             const response = await api.get(`/dishes/${params.id}`);
@@ -102,10 +105,13 @@ export function EditFood() {
         <Container>
             <Header />
             <Main>
-                <Link to="/"
-                    icon={IoIosArrowBack}
-                    title="voltar"
-                />
+                <button
+                    type="button"
+                    onClick={handleBack}
+                >
+                    <IoIosArrowBack />
+                    voltar
+                </button>
 
                 <h1>Editar prato</h1>
 

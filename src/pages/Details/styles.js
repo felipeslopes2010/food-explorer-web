@@ -5,17 +5,21 @@ export const Container = styled.div`
     flex-direction: column;
     height: 100vh;
 
-    > a {
+    > button {
         display: flex;
         align-items: center;
-        
+
         margin: 32px 0px 42px 124px;
 
         font-family: 'Poppins', serif;
         font-size: 24px;
         font-weight: 700;
         line-height: 140%;
+
         color: ${({ theme }) => theme.COLORS.LIGHT_300};
+
+        background-color: transparent;
+        border: none;
 
         > svg {
             width: 32px;

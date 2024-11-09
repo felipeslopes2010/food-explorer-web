@@ -14,21 +14,26 @@ export const Main = styled.div`
     flex: 1;
     padding: 0px 124px 116px;
 
-    > a {
+    > button {
         display: flex;
         align-items: center;
-
+        
         margin: 32px 0px 24px;
 
         font-family: 'Poppins', serif;
         font-size: 24px;
         font-weight: 700;
         line-height: 140%;
+
         color: ${({ theme }) => theme.COLORS.LIGHT_300};
+
+        background-color: transparent;
+        border: none;
 
         > svg {
             width: 32px;
             height: 32px;
+
             color: ${({ theme }) => theme.COLORS.LIGHT_100};
         }
     }
