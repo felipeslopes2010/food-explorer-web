@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import { IoIosArrowBack } from "react-icons/io";
 import { FiUpload } from "react-icons/fi";
@@ -27,6 +27,7 @@ export function EditFood() {
     const [description, setDescription] = useState("");
 
     const params = useParams();
+    const navigate = useNavigate();
 
     function handleAddIngredient() {
         if (newIngredient.trim()) {
@@ -66,7 +67,7 @@ export function EditFood() {
         });
         
         alert("Prato atualizado com sucesso!");
-        navigate("/");
+        navigate(`/details/${params.id}`);
     }
 
     useEffect(() => {
