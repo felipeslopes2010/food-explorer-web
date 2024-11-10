@@ -15,6 +15,11 @@ export function Header({ onSearchChange }) {
 
     const navigate = useNavigate();
 
+    function handleSignout() {
+        navigate('/');
+        signOut();
+    }
+
     function handleBack() {
         navigate('/');
     }
@@ -57,7 +62,7 @@ export function Header({ onSearchChange }) {
 
             <FiLogOut
                 aria-label="Sair"
-                onClick={signOut}
+                onClick={handleSignout}
             />
         </Container>
     )
