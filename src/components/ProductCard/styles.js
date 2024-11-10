@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     position: relative;
-    min-width: 304px;
+    width: 304px;
     height: 462px;
 
     display: flex;
@@ -44,12 +44,15 @@ export const Container = styled.div`
     }
 
     > p {
-        height: 34px;
-        
-        font-size: 14px;
+        display: -webkit-box;           
+        -webkit-line-clamp: 3;          
+        -webkit-box-orient: vertical;
+        overflow: hidden;    
+        text-overflow: ellipsis;
         text-align: center;
-        color: ${({theme}) => theme.COLORS.LIGHT_400};
     }
+
+
 
     > span {
         font-size: 32px;

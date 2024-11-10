@@ -89,7 +89,4 @@ export const Products = styled.div`
         color: ${({theme}) => theme.COLORS.LIGHT_100};
     }
 
-    > div:last-of-type {
-        opacity: 0.3;
-    }
 `;

@@ -71,24 +71,31 @@ export function Home() {
             <h2>Refeições</h2>
 
             <Products>
-                <IoIosArrowBack />
+                {
+                    dishes.length >= 4 &&
+                    <IoIosArrowBack />
+                }
 
-            {
-                dishes &&
-                    dishes.map(dish => (
-                            <ProductCard
-                                key={String(dish.id)}
-                                image={dish.image}
-                                name={dish.name}
-                                description={dish.description}
-                                price={`R$ ${dish.price}`}
-                                onEdit={handleEdit}
-                                onClick={() => handleDetails(dish.id)}
-                            />
-                        ))
-            }
+                {
+                    dishes &&
+                        dishes.map(dish => (
+                                <ProductCard
+                                    key={String(dish.id)}
+                                    image={dish.image}
+                                    name={dish.name}
+                                    description={dish.description}
+                                    price={`R$ ${dish.price}`}
+                                    onEdit={handleEdit}
+                                    onClick={() => handleDetails(dish.id)}
+                                />
+                            ))
+                }
 
-            <IoIosArrowForward />
+                {
+                    dishes.length >= 4 &&
+                    <IoIosArrowForward />
+                }
+         
             </Products>
 
             <h2>Sobremesas</h2>
