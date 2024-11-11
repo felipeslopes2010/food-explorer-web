@@ -63,6 +63,7 @@ export function NewFood() {
         }
 
         await api.post("/dishes", {
+            image: fileName,
             name,
             category,
             ingredients,
@@ -120,11 +121,14 @@ export function NewFood() {
 
                     <InputWrapper>
                         <label>Categoria</label>
-                        <Input
-                            placeholder="Refeição"
+                        <select
                             value={category}
                             onChange={e => setCategory(e.target.value)}
-                        />
+                        >
+                            <option value="refeicao">Refeição</option>
+                            <option value="sobremesa">Sobremesa</option>
+                            <option value="bebida">Bebida</option>
+                        </select>
                     </InputWrapper>
 
                     <InputWrapper>

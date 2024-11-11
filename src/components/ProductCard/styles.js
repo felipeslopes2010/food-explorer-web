@@ -44,6 +44,7 @@ export const Container = styled.div`
     }
 
     > p {
+        height: 60px;
         display: -webkit-box;           
         -webkit-line-clamp: 3;          
         -webkit-box-orient: vertical;

@@ -148,6 +148,22 @@ export const InputWrapper = styled.div`
         font-size: 14px;
         text-align: center;
     }
+
+    > select {
+        height: 48px;
+           
+        padding: 12px 14px;
+        
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        
+        border-right: 16px solid transparent;
+
+        color: ${({theme}) => theme.COLORS.LIGHT_100};
+        background-color: ${({theme}) => theme.COLORS.DARK_800};
+    }
+
 `;
 
 export const ButtonWrapper = styled.div`
